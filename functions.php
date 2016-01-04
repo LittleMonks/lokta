@@ -1,5 +1,11 @@
 <?php
 
+define( 'LOKTA_VERSION', '1.0.0' );
+define( 'LOKTA_TEMP_URI', get_template_directory_uri() );
+define( 'LOKTA_TEMP_DIR', get_template_directory() );
+define( 'LOKTA_JS_URI', ISHA_BLOG_TEMP_URI . '/js' );
+define( 'LOKTA_IMG_URI', ISHA_BLOG_TEMP_URI . '/images' );
+
 /**
  * lokta functions and definitions.
  *
@@ -116,9 +122,17 @@ add_action( 'widgets_init', 'lokta_widgets_init' );
 function lokta_scripts() {
     wp_enqueue_style( 'lokta-style', get_stylesheet_uri() );
 
-    wp_enqueue_script( 'lokta-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+    wp_enqueue_script( 'lokta-navigation', LOKTA_TEMP_URI . '/js/navigation.js', array(), LOKTA_VERSION, true );
 
-    wp_enqueue_script( 'lokta-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+    wp_enqueue_script( 'lokta-skip-link-focus-fix', LOKTA_TEMP_URI . '/js/skip-link-focus-fix.js', array(), LOKTA_VERSION, true );
+
+    wp_register_script( 'lokta-bootstrap-js', LOKTA_TEMP_URI . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ), LOKTA_VERSION, true );
+
+    wp_register_style( 'lokta-bootstrap-css', LOKTA_TEMP_URI . '/bootstrap/css/bootstrap.min.css', array(), LOKTA_VERSION, 'all' );
+
+    wp_enqueue_script( 'lokta-bootstrap-js' );
+
+    wp_enqueue_style( 'lokta-bootstrap-css' );
 
     if( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
