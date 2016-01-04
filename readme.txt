@@ -1,4 +1,4 @@
-=== _s ===
+=== lokta ===
 
 Contributors: automattic
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
@@ -9,7 +9,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A starter theme called _s, or underscores.
+A starter theme called lokta.
 
 == Description ==
 
